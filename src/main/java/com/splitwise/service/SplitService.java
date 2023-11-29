@@ -1,14 +1,23 @@
+/*
 package com.splitwise.service;
 
 import com.splitwise.entity.Expense;
 import com.splitwise.entity.Split;
+import com.splitwise.entity.User;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 
+@Service
 public class SplitService {
 
-  public static Expense createExpense(String paidBy, double amount, List<Split> splitList, ExpenseType expenseType, String label) {
+  public static Expense createExpense(
+          String paidBy,
+          double amount,
+          List<User> splitList,
+          ExpenseType expenseType,
+          String label) {
 
 
     switch (expenseType) {
@@ -31,3 +40,4 @@ public class SplitService {
     EXACT
   }
 }
+*/

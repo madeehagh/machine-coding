@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Split {
-  private User user;
+  private String userId;
   private double amount;
 }
