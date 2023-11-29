@@ -1,5 +1,3 @@
-package splitwise;
-
 import java.util.Date;
 import java.util.List;
 

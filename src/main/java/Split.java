@@ -1,5 +1,3 @@
-package splitwise;
-
 import lombok.Data;
 
 @Data
