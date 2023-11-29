@@ -1,7 +1,7 @@
-package splitwise.service;
+package com.splitwise.service;
 
-import splitwise.entity.Expense;
-import splitwise.entity.Split;
+import com.splitwise.entity.Expense;
+import com.splitwise.entity.Split;
 
 import java.util.Date;
 import java.util.List;

@@ -1,4 +1,4 @@
-package splitwise.entity;
+package com.splitwise.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
