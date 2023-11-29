@@ -17,7 +17,7 @@ public class ExpenseController {
     @Autowired
     SplitServiceImpl splitService;
 
-    @PostMapping(value = "/createExpense", consumes = "application/json")
+    @PostMapping(value = "/", consumes = "application/json")
     public ResponseEntity<String> createExpense(@RequestBody String expense){
         Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
         try {

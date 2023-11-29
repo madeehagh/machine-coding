@@ -36,7 +36,7 @@ public class ExpenseControllerTest {
 
     @Test
     public void testCreateExpenseWhenValidExpenseThenReturnOk() throws Exception {
-        mockMvc.perform(post("/v1/expense/createExpense")
+        mockMvc.perform(post("/v1/expense/")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(validExpenseJson))
                 .andExpect(status().isOk())
@@ -45,7 +45,7 @@ public class ExpenseControllerTest {
 
     @Test
     public void testCreateExpenseWhenInvalidExpenseThenReturnBadRequest() throws Exception {
-        mockMvc.perform(post("/v1/expense/createExpense")
+        mockMvc.perform(post("/v1/expense/")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(invalidExpenseJson))
                 .andExpect(status().isBadRequest())
