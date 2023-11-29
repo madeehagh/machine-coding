@@ -1,4 +1,9 @@
+package splitwise.service;
+
 import lombok.Data;
+import splitwise.entity.Expense;
+import splitwise.entity.Split;
+import splitwise.entity.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,7 +11,8 @@ import java.util.List;
 import java.util.Map;
 
 @Data
-public class ExpenseManager {
+public class
+ExpenseManager {
 
   Map<String, User> userMap;
   Map<User, Map<User, Double>> balanceSheet;
@@ -49,7 +55,7 @@ public class ExpenseManager {
   public void showBalanceForUser(String userId) {
     User currentUser = userMap.get(userId);
     if (null == currentUser) {
-      System.out.println("Invalid User Input");
+      System.out.println("Invalid splitwise.entity.User Input");
       return;
     }
     for (Map.Entry<User, Double> userBalance : balanceSheet.get(currentUser).entrySet()) {
@@ -62,7 +68,7 @@ public class ExpenseManager {
   private void printBalance(String userId, Map.Entry<User, Double> userBalance) {
     if (userBalance.getValue() != 0) {
       if (userBalance.getValue() < 0) {
-        System.out.println("User " + userMap.get(userId).getName() + " owes amount " + Math.abs(userBalance.getValue())
+        System.out.println("splitwise.entity.User " + userMap.get(userId).getName() + " owes amount " + Math.abs(userBalance.getValue())
             + " to " + userBalance.getKey().getName());
         return;
       }

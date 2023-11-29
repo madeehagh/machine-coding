@@ -1,3 +1,5 @@
+package splitwise.entity;
+
 import lombok.Data;
 
 import java.util.Date;

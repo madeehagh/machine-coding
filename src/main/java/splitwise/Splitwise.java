@@ -1,3 +1,10 @@
+package splitwise;
+
+import splitwise.entity.Split;
+import splitwise.entity.User;
+import splitwise.service.ExpenseManager;
+import splitwise.service.SplitService;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,7 +19,7 @@ public class Splitwise {
     Scanner scanner = new Scanner(System.in);
     while (true) {
 
-      System.out.println("Select option: Create Expense [1], Show Balance [2]");
+      System.out.println("Select option: Create splitwise.entity.Expense [1], Show Balance [2]");
       String input = scanner.nextLine();
       switch (input) {
         case "1":
@@ -64,7 +71,7 @@ public class Splitwise {
     List<Split> splits = new ArrayList<>();
     splits.add(new Split(expenseManager.getUserMap().get(paidBy), amount));
     for (int i=1; i< num; i++) {
-      System.out.println("User id: " );
+      System.out.println("splitwise.entity.User id: " );
       String userId = scanner.nextLine();
       splits.add(new Split(expenseManager.getUserMap().get(userId), amount));
     }

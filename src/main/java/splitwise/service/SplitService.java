@@ -1,9 +1,16 @@
+package splitwise.service;
+
+import splitwise.entity.Expense;
+import splitwise.entity.Split;
+
 import java.util.Date;
 import java.util.List;
 
 public class SplitService {
 
   public static Expense createExpense(String paidBy, double amount, List<Split> splitList, ExpenseType expenseType, String label) {
+
+
     switch (expenseType) {
       case EQUAL:
         int splitSize = splitList.size();
