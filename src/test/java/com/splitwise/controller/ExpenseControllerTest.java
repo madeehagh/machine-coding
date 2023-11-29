@@ -36,7 +36,7 @@ public class ExpenseControllerTest {
 
     @Test
     public void testCreateExpenseWhenValidExpenseThenReturnOk() throws Exception {
-        mockMvc.perform(post("/v1/expense/")
+        mockMvc.perform(post("/v1/splitwise/expense")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(validExpenseJson))
                 .andExpect(status().isOk())
@@ -45,7 +45,7 @@ public class ExpenseControllerTest {
 
     @Test
     public void testCreateExpenseWhenInvalidExpenseThenReturnBadRequest() throws Exception {
-        mockMvc.perform(post("/v1/expense/")
+        mockMvc.perform(post("/v1/splitwise/expense")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(invalidExpenseJson))
                 .andExpect(status().isBadRequest())
@@ -54,14 +54,14 @@ public class ExpenseControllerTest {
 
     @Test
     public void testUserBalanceThenReturnSuccess() throws Exception {
-        mockMvc.perform(get("/v1/expense/balance"))
+        mockMvc.perform(get("/v1/splitwise/balance"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("success"));
     }
 
     @Test
     public void testRegisterUserWhenValidUserThenReturnOk() throws Exception {
-        mockMvc.perform(post("/v1/expense/register")
+        mockMvc.perform(post("/v1/splitwise/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(validUserJson))
                 .andExpect(status().isOk())
@@ -70,7 +70,7 @@ public class ExpenseControllerTest {
 
 /*    @Test
     public void testRegisterUserWhenInvalidUserThenReturnBadRequest() throws Exception {
-        mockMvc.perform(post("/v1/expense/register")
+        mockMvc.perform(post("/v1/splitwise/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(invalidUserJson))
                 .andExpect(status().isBadRequest())

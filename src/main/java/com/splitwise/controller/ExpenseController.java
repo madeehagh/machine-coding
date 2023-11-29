@@ -11,13 +11,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/v1/expense")
+@RequestMapping("/v1/splitwise")
 public class ExpenseController {
 
     @Autowired
     SplitServiceImpl splitService;
 
-    @PostMapping(value = "/", consumes = "application/json")
+    @PostMapping(value = "/expense", consumes = "application/json")
     public ResponseEntity<String> createExpense(@RequestBody String expense){
         Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
         try {
