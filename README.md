@@ -22,6 +22,10 @@ Main class splitwise.src.main.java.com.splitwise.MainApplication.java
 8. Leave the "Driver Class" field as it is (org.h2.Driver).
 9. Click on the "Connect" button to log in to the H2 database console.
 
+#### OpenAPI
+APIs can be accessed on
+http://localhost:8080/swagger-ui/index.html
+
 ### Non-Functional:
 1. CodeQL to run static analysis on code
 
