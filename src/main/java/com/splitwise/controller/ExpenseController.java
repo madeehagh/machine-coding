@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.splitwise.entity.Expense;
 import com.splitwise.entity.User;
+import com.splitwise.enums.UserStatus;
 import com.splitwise.service.SplitServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,12 +34,14 @@ public class ExpenseController {
     @PostMapping(value = "/invite", consumes = "application/json")
     public ResponseEntity<String> sendInvite(@RequestParam String inviteToUser) {
         try {
-            splitService.sendInvite(inviteToUser);
-            return ResponseEntity.ok("Invitation sent to user");
+            UserStatus userStatus = splitService.sendInvite(inviteToUser);
+            if (userStatus.equals(UserStatus.NOT_FOUND))
+                return ResponseEntity.ok("Invitation sent to user");
+            else
+                return ResponseEntity.ok("User already registered in the system");
         } catch (Exception e) {
             return  ResponseEntity.internalServerError().body("Something went wrong");
         }
-
     }
 
     @PostMapping(value = "/register", consumes = "application/json")

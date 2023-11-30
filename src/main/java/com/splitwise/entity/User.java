@@ -1,16 +1,22 @@
 package com.splitwise.entity;
 
-import com.google.gson.annotations.Expose;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Entity
+@Table(name = "users")
 @AllArgsConstructor
-
+@Getter
 public class User {
-  @Expose
-  String id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  long id;
   String name;
   String email;
   String phoneNo;
+
+  public long getId() {
+    return this.id;
+  }
 }
