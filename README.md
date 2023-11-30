@@ -23,6 +23,14 @@ To login to the H2 database console, you can follow these steps:
 8. Click on the "Connect" button to log in to the H2 database console.
 ![](/Users/administrator/IdeaProjects/splitwise-design/h2-login.png)
 
+#### Run GithubActions locally
+Install act on your system as mentioned in [https://github.com/nektos/act](https://github.com/nektos/act)
+Install Docker [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
+Make sure docker is properly installed by running `docker version` command on your terminal
+Once act and docker is installed, run `
+act -j analyze --env GITHUB_TOKEN=YOUR_TOKEN`
+from workflow root directory `/IdeaProjects/splitwise-design`
+
 #### OpenAPI
 APIs can be accessed on
 http://localhost:8080/swagger-ui/index.html
