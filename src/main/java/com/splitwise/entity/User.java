@@ -1,12 +1,10 @@
 package com.splitwise.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Entity
 @Table(name = "users")
-@AllArgsConstructor
 @Getter
 public class User {
   @Id
@@ -15,6 +13,12 @@ public class User {
   String name;
   String email;
   String phoneNo;
+
+  public User(String name, String email, String phoneNo) {
+    this.name = name;
+    this.email = email;
+    this.phoneNo = phoneNo;
+  }
 
   public long getId() {
     return this.id;

@@ -28,7 +28,7 @@ Install act on your system as mentioned in [https://github.com/nektos/act](https
 Install Docker [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 Make sure docker is properly installed by running `docker version` command on your terminal
 Once act and docker is installed, run `
-act -j analyze --env GITHUB_TOKEN=YOUR_TOKEN`
+act -j analyze --env WORKFLOW_TOKEN=YOUR_TOKEN`
 from workflow root directory `/IdeaProjects/splitwise-design`
 
 #### OpenAPI

@@ -36,7 +36,8 @@ public class SplitServiceImplTest {
 
     @BeforeEach
     public void setUp() {
-        user = new User(1L,
+        user = new User(
+
                 "Test User",
                 "testuser@gmail.com",
                 "1234567890");
