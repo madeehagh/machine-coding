@@ -1,30 +1,38 @@
 name: "CodeQL"
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+  push:
 
 jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Set GITHUB_RUN_ATTEMPT
-        run: |
-          echo "GITHUB_RUN_ATTEMPT=1" >> $GITHUB_ENV
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'java' ]
 
+    steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '18'
+          java-package: jdk
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
-          languages: java-kotlin
+          languages: ${{ matrix.language }}
           token: ${{ secrets.WORKFLOW_TOKEN }}
 
-      - run: |
-          echo "Run, Build Application using script"
-          mvn clean package -f pom.xml -e -X -B -V -Dfindbugs.skip -Dcheckstyle.skip -Dpmd.skip=true -Dspotbugs.skip -Denforcer.skip -Dmaven.javadoc.skip -DskipTests -Dmaven.test.skip.exec -Dlicense.skip=true -Drat.skip=true -Dspotless.check.skip=true
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
